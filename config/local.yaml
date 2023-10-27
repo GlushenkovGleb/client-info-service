@@ -1,0 +1,20 @@
+env: "local"
+file-storage-path: "./files/history"
+http-server:
+  address: "localhost:8080"
+  timeout: 4s
+  idle-timeout: 30s
+data-base:
+  url: "postgres://user:password@localhost:5432/client_info?sslmode=disable"
+client-info-enricher:
+  get-age-url: "https://api.agify.io/"
+  get-gender-url: "https://api.genderize.io/"
+  get-country-url: "https://api.nationalize.io/"
+kafka:
+  address: "localhost:29092"
+  add-client-topic: "FIO"
+  dead-client-topic: "FIO_FAILED"
+  group-id: "client-info-service-1"
+  partition: 0
+  max-bytes: 10e6
+  deadline-sec: 5
